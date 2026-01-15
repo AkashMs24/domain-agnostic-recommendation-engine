@@ -50,7 +50,7 @@ try:
     if uploaded_file is not None:
         df = pd.read_csv(uploaded_file)
     else:
-        df = pd.read_csv("data/products_dataset.csv")
+        df = pd.read_csv(""C:\Users\bumik\OneDrive\product_recommender\data\products_dataset.csv"")
 except Exception:
     st.error("❌ Failed to load dataset.")
     st.stop()
@@ -211,3 +211,4 @@ with st.expander("📄 Preview Dataset"):
 st.markdown("---")
 st.caption("v1.0 • Portfolio Demonstration Project")
 st.caption("Built by Akash M S")
+
