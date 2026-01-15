@@ -53,7 +53,7 @@ if uploaded_file is not None:
         st.error("Failed to load uploaded dataset.")
 else:
     try:
-        df = pd.read_csv("data/products_dataset.csv")
+        df = pd.read_csv("products_dataset.csv")
         st.info("Using default sample dataset.")
     except FileNotFoundError:
         st.warning(
@@ -219,6 +219,7 @@ with st.expander("📄 Preview Dataset"):
 st.markdown("---")
 st.caption("v1.0 • Portfolio Demonstration Project")
 st.caption("Built by Akash M S")
+
 
 
 
