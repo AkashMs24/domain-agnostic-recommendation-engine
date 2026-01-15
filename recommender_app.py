@@ -39,20 +39,28 @@ st.write(
 # Dataset upload
 # ----------------------------------
 uploaded_file = st.file_uploader(
-    "📤 Upload your dataset (CSV)",
+    "📤 Upload your own dataset (CSV)",
     type=["csv"]
 )
 
-# ----------------------------------
-# Load dataset
-# ----------------------------------
-try:
-    if uploaded_file is not None:
+df = None
+
+if uploaded_file is not None:
+    try:
         df = pd.read_csv(uploaded_file)
-    else:
-        df = pd.read_csv("C:\Users\bumik\OneDrive\product_recommender\data\products_dataset.csv")
-except Exception:
-    st.error("❌ Failed to load dataset.")
+        st.success("Uploaded dataset loaded successfully.")
+    except Exception:
+        st.error("Failed to load uploaded dataset.")
+else:
+    try:
+        df = pd.read_csv("data/products_dataset.csv")
+        st.info("Using default sample dataset.")
+    except FileNotFoundError:
+        st.warning(
+            "Default dataset not found. Please upload a CSV file to continue."
+        )
+
+if df is None:
     st.stop()
 
 # ----------------------------------
@@ -211,5 +219,6 @@ with st.expander("📄 Preview Dataset"):
 st.markdown("---")
 st.caption("v1.0 • Portfolio Demonstration Project")
 st.caption("Built by Akash M S")
+
 
 
