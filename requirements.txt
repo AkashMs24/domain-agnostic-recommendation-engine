@@ -1,0 +1,7 @@
+streamlit
+pandas
+numpy
+scikit-learn
+torch
+transformers==4.41.2
+sentence-transformers==2.7.0
